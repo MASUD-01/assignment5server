@@ -10,20 +10,24 @@ app.use(cors());
 app.use(express.json());
 
 // const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.euxm4cs.mongodb.net/?retryWrites=true&w=majority`;
-// const client = new MongoClient(uri, {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-//   serverApi: ServerApiVersion.v1,
-// });
-const uri = "mongodb://localhost:27017"; // Replace <port> with the port number
+const uri =
+  "mongodb+srv://task-app:7c04t95x2au3BWmg@cluster0.ddxed.mongodb.net/?retryWrites=true&w=majority";
+
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  serverApi: ServerApiVersion.v1,
 });
+// const uri = "mongodb://localhost:27017"; // Replace <port> with the port number
+
+// const client = new MongoClient(uri, {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// });
 
 const run = async () => {
   try {
-    const db = client.db("assignment5");
+    const db = client.db("nextjs");
     const booksCollection = db.collection("books");
     const reviewCollection = db.collection("reviews");
 
